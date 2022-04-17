@@ -10,7 +10,7 @@ Talkie voice;
 String maclist[2048][3];
 int listcount = 0;
 
-String defaultTTL = "20"; // Maximum time in seconds before device is consirded offline
+String defaultTTL = "20"; // Maximum time in seconds before device is considered offline
 
 const wifi_promiscuous_filter_t filt = {
   .filter_mask = WIFI_PROMIS_FILTER_MASK_MGMT | WIFI_PROMIS_FILTER_MASK_DATA
@@ -49,7 +49,7 @@ const char * wifi_sniffer_packet_type2str(wifi_promiscuous_pkt_type_t type) {
   }
 }
 
-void sniffer(void * buff, wifi_promiscuous_pkt_type_t type) { //This is where packets end up after they get sniffed
+void sniffer(void * buff, wifi_promiscuous_pkt_type_t type) {
   const wifi_promiscuous_pkt_t * ppkt = (wifi_promiscuous_pkt_t * ) buff;
   const wifi_ieee80211_packet_t * ipkt = (wifi_ieee80211_packet_t * ) ppkt -> payload;
   const wifi_ieee80211_mac_hdr_t * hdr = & ipkt -> hdr;
@@ -104,7 +104,6 @@ void sniffer(void * buff, wifi_promiscuous_pkt_type_t type) { //This is where pa
 
 }
 
-//===== SETUP =====//
 void setup() {
   /* start Serial */
   Serial.begin(115200);
@@ -121,7 +120,8 @@ void setup() {
   esp_wifi_set_channel(curChannel, WIFI_SECOND_CHAN_NONE);
 }
 
-void purge() { // This manges the TTL
+// Manges TTL
+void purge() { 
   for (int i = 0; i <= 2047; i++) {
     if (!(maclist[i][0] == "")) {
       int ttl = (maclist[i][1].toInt());
@@ -136,7 +136,7 @@ void purge() { // This manges the TTL
   }
 }
 
-// This updates the time the device has been online for and returns a count of live devices
+// Updates the time the device has been online for and returns a count of live devices
 int updatetime() {
   int liveCount = 0;
   for (int i = 0; i <= 2047; i++) {
@@ -167,7 +167,7 @@ void loop() {
   curChannel++;
 }
 
-/* Say any number between -999,999 and 999,999 */
+// Say any number between -999,999 and 999,999
 void sayNumber(long n) {
   if (n < 0) {
     voice.say(sp2_MINUS);
