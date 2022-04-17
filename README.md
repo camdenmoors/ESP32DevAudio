@@ -12,7 +12,7 @@ Get an audible count of the number of WiFi devices in your area with an ESP32.
 ## Thanks To
  - [ArminJo](https://github.com/ArminJo) for the updated [Talkie](https://github.com/ArminJo/Talkie) library
  - [going-digital](https://github.com/going-digital) for the original [Talkie](https://github.com/going-digital/Talkie) library
- - [Gadget Reboot](https://www.youtube.com/c/GadgetReboot) For [their video](https://www.youtube.com/watch?v=O_yl5kcRO5w) on Arduino speech synthesis 
+ - [Gadget Reboot](https://www.youtube.com/c/GadgetReboot) for their [video](https://www.youtube.com/watch?v=O_yl5kcRO5w) on Arduino speech synthesis 
 
 ## Note
 The contents of this repository are a personal project and in no way reflect work done for my employer.
